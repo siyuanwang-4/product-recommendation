@@ -7,20 +7,20 @@ def get_model(name = "w2v-light-tencent-chinese"):
 def compute_emb(model, sentences):
     # Embed a list of sentences
     # sentences = [
-    #     '卡',
-    #     '银行卡',
-    #     '如何更换花呗绑定银行卡',
-    #     '花呗更改绑定银行卡',
+    #     'card',
+    #     'bank card',
+    #     'how to change Huabei binding bank card',
+    #     'Huabei change binding bank card',
     #     'This framework generates embeddings for each input sentence',
     #     'Sentences are passed as a list of string.',
     #     'The quick brown fox jumps over the lazy dog.',
-    #     '敏捷的棕色狐狸跳过了懒狗',
+    #     'The agile brown fox jumps over the lazy dog',
     # ]
     sentence_embeddings = model.encode(sentences, show_progress_bar=True, normalize_embeddings=True)
     return sentence_embeddings
 
 
 if __name__ == "__main__":
-    # 中文词向量模型(word2vec)，中文字面匹配任务和冷启动适用
+    # Chinese word vector model (word2vec), suitable for Chinese literal matching tasks and cold start
     w2v_model = get_model()
-    compute_emb(w2v_model, ["银行卡"])
+    print(compute_emb(w2v_model, ["银行卡"]))
